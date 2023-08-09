@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Footer</title>
+</head>
+<body>
+	<!-- 다른 화면에 포함될 내용을 만든다. -->
+	<div th:fragment="footer" style="background-color: pink;">
+		<h1>나는 화면 하단에 나타날 내용입니다.(fragment)</h1>
+	</div>
+	
+	<!-- th:fragment 대신 id로 지정했다면 어떻게 포함할까?  -->
+	<div id="footer2" style="background-color: yellow;">
+		<h1>나는 화면 하단에 나타날 내용입니다.(id)</h1>
+	</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>홈화면</title>
+	 <style>
+        #wrapper{
+            max-width: 800px;/* 최대 가로폭 지정 */
+            width:300px;/* 가로폭 지정 */
+            margin:auto;/* 상하 여백 0, 좌우 여백 균등하게 */
+        }
+    </style>
+    
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			//console.log("게시판 목록보기 ~~~~~~~~~~~~~")
+			
+			// 아이디를 입력할때 Ajax로 가입가능한 id인지를 확인하는 함수
+			// 키보드로 문자를 입력하고 떨어질때마다 작동
+			$("#userid").keyup(function(){
+				// 입력값 읽기
+				let userid = $(this).val();
+				// alert(id);
+				// 공백 입력 체크
+				if(id.indexOf(' ')>=0){
+					alert('아이디에는 공백을 포함할 수 없습니다.');
+					$(this).val("");
+					$(this).focus();
+					return;
+				}
+				
+				
+				
+			});
+		});	
+		
+		function formCheck(){
+			let value = $("#userid").val();
+			if(value==null || value.trim().length==0){
+				alert('아이디는 반드시 입력해야 합니다.');
+				 $("#userid").val("");
+				 $("#userid").focus();
+				 return false;
+			}
+			value = $("#password").val();
+			if(value==null || value.trim().length==0){
+				alert('비밀번호는 반드시 입력해야 합니다.');
+				 $("#password").val("");
+				 $("#password").focus();
+				 return false;
+			}
+			
+			
+		}
+		
+	</script>
+</head>
+<body>
+	<header th:replace="~{comm/myLayout :: #myHeader}">
+	<nav th:replace="~{comm/myLayout :: #myNav}"></nav>
+	</header>
+		<div class="card mb-4">
+		</div>
+	<section>
+	  <div id="wrapper">
+		<table>
+			<tr>
+				<td style="border: none;font-size: 18pt;text-align: center;"> Login</td>
+			</tr>
+			<tr>
+				<td>
+					<form action="loginOk" method="post" onsubmit="return formCheck();" >
+    				
+				<div class="mb-3" >
+						아이디   <input type="text" class="form-control"  name="id" id="userid" required="required" placeholder="아이디입력" /> 
+						</div>
+      						
+					
+							<div class="mb-3">
+						비밀번호  <input type="password" class="form-control" name="password" id="password" required="required" placeholder="비밀번호입력"/> <br />
+
+						<input type="submit" value="로그인" class="btn btn-primary btn-lg"style="width:100%"/>										
+					</div>
+					</form>
+				</td>
+			</tr>
+		</table>
+		</div>
+	</section>
+	<footer th:replace="~{comm/myLayout :: #myFooter}"></footer>
+</body>
+</html>				

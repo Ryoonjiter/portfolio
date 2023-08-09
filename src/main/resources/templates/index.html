@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>홈화면</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			console.log("게시판 목록보기 ~~~~~~~~~~~~~")
+		});	
+	</script>
+	
+</head>
+<body>
+	<header th:replace="~{comm/myLayout :: #myHeader}">
+	
+	<nav th:replace="~{comm/myLayout :: #myNav}"></nav>
+	</header>
+	
+	<th:block th:if="${session.userVO!=null}">
+	&nbsp;&nbsp;	[[${session.userVO.name}]]님 반갑습니다.
+	</th:block>
+	
+	<th:block th:if="${session.userVO!=null}">
+	   <button class="btn btn-light"  onclick="location.href='/logout'">로그아웃</button>
+	</th:block>
+	
+	
+	
+	
+	
+	
+<img src="images/image1.jpg" alt="사진" width="1263" height="850" />
+	<footer th:replace="~{comm/myLayout :: #myFooter}"></footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Header</title>
+</head>
+<body>
+	<!-- 다른 화면에 포함될 내용을 만든다. -->
+	<div th:fragment="header1" style="background-color: pink;">
+		<h1>Header입니다.</h1>
+	</div>
+	<!-- 여러개를 만들어 놓을 수 있다. 이름만 다르게하면된다. 매개변수도 받을 수 있다.  -->
+	<div th:fragment="header2(param1, param2)" style="background-color: skyblue;">
+		<h1> [[${param1}]] : [[${param2}]]</h1>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>임시 홈화면</title>
+	<style type="text/css">
+		div {margin: 10px; padding: 15px; border: 1px solid gray; border-radius: 20px;}
+	</style>
+	<!--/* 이놈은 타임리프 주석이다.  
+	프래그먼트 표현식 의 구문은 매우 간단합니다. 세 가지 형식이 있습니다.
+	"~{templatename::selector}"  templatename이라는 템플릿파일에 지정된 
+	Markup Selector를 적용한 결과 조각을 포함합니다. 
+	selector단순한 프래그먼트 이름일 수 있으므로 아래와 같이 간단하게 지정할 수 있습니다. 
+	~{footer :: copy}.
+	
+	"~{templatename}"라는 전체 템플릿을 포함합니다 templatename.
+	
+	~{::selector}"또는 "~{this::selector}"일치하는 동일한 템플릿의 단편을 삽입합니다 
+	
+	templatename위의 예에서 및 모두 selector다음과 같이 완전한 기능을 갖춘 표현식(조건문도!)이 될 수 있습니다.	
+	
+	th:insert와 th:replace 차이
+
+	th:insert단순히 지정된 조각을 호스트 태그의 본문으로 삽입합니다.
+	th:replace실제로 해당 호스트 태그를 지정된 조각으로 바꿉니다 .	
+	
+	
+	*/-->
+</head>
+<body>
+	<div th:replace="~{comm/headers :: header1}"></div>
+	<div th:replace="~{comm/headers :: header2('한사람',33)}"></div>
+	<div th:insert="~{comm/headers :: header2('두사람','천재')}"></div>
+	
+	<div>
+		<h1>마리아 DB 시간 : [[${today}]]</h1>
+	</div>
+	
+	<div th:replace="~{comm/footers :: footer}"></div>
+	<div th:insert="~{comm/footers :: #footer2}"></div>
+</body>
+</html>
